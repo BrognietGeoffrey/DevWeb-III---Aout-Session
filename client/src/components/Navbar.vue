@@ -1,0 +1,74 @@
+<template>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="https://www.ephec.be/" target="_blank" class="navbar-brand">EPHEC HACKATLON</a> |
+
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Router link for the Home Page -->
+                <li class="nav-item active">
+                    <router-link to="/home" class="nav-link">
+                        Home
+                    </router-link>
+                </li>
+
+                <!-- Router link for the About Page -->
+                <li class="nav-item">
+                    <router-link to="/about" class="nav-link">
+                        About
+                    </router-link>
+                </li>
+
+                <!-- Router link for the Login Page -->
+                <li class="nav-item">
+                    <router-link to="/login" class="nav-link">
+                        Login
+                    </router-link>
+                </li>
+
+                <!-- Router Link for the Register Page -->
+                <li class="nav-item">
+                    <router-link to="/register" class="nav-link">
+                        Register
+                    </router-link>
+                </li>
+
+                <!-- Router link for the Profile Page -->
+                <li class="nav-item">
+                    <router-link to="/profile" class="nav-link">
+                        Profile
+                    </router-link>
+                </li>
+
+                <!-- Router link for the Logout Page -->
+                <li class="nav-item">
+                    <a to="/logout" class="nav-link">
+                        Log out
+                    </a>
+                </li>
+
+                <!-- Example of disabled link
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+                -->
+
+            </ul>
+        </div>
+    </div>
+    </nav>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
