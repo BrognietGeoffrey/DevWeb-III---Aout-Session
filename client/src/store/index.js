@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import Auth from '../Wharehouse/Auth.js';
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+
   state: {
   },
   mutations: {
@@ -11,5 +14,6 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    Auth
   }
 })
