@@ -9,7 +9,7 @@
                     <h4>Register</h4>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form @submit.prevent="registerUser">
                         <div class="form-group">
                             <label for="password">Username</label>
                             <input
@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
     data(){
         return {
@@ -79,6 +80,23 @@ export default {
             confirm_password:"",
             email:"",
             name:""
+        }
+    },
+    methods:{
+        ...mapActions(['register']),
+        registerUser(){
+            let user = {
+                username: this.username,
+                password: this.password,
+                confirm_password: this.confirm_password,
+                email: this.email,
+                name: this.name
+            }
+            this.register(user).then(res => {
+                if(res.data.success){
+                    this.$router.push("login");
+                }
+            });
         }
     }
 }

@@ -10,7 +10,7 @@
             <ul class="navbar-nav ml-auto">
 
                 <!-- Router link for the Home Page -->
-                <li class="nav-item active">
+                <li class="nav-item">
                     <router-link to="/home" class="nav-link">
                         Home
                     </router-link>
@@ -20,6 +20,20 @@
                 <li class="nav-item">
                     <router-link to="/about" class="nav-link">
                         About
+                    </router-link>
+                </li>
+
+                <!-- Router link for the Classement Page -->
+                <li class="nav-item" v-if="isLoggedIn">
+                    <router-link to="/classement" class="nav-link">
+                        Classement
+                    </router-link>
+                </li>
+
+                <!-- Router link for the Easter Egg Page -->
+                <li class="nav-item" v-if="isLoggedIn">
+                    <router-link to="/easteregg" class="nav-link">
+                        Easter Egg
                     </router-link>
                 </li>
 
@@ -46,7 +60,7 @@
 
                 <!-- Router link for the Logout Page -->
                 <li class="nav-item" v-if="isLoggedIn">
-                    <a to="/logout" class="nav-link">
+                    <a to="/logout" class="nav-link" @click.prevent="logoutUser">
                         Log out
                     </a>
                 </li>
@@ -64,10 +78,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
     computed : {
         ...mapGetters(["isLoggedIn"])
+    },
+    methods:{
+        ...mapActions(['logout']),
+        logoutUser(){
+            this.logout();
+        }
     }
 }
 </script>
