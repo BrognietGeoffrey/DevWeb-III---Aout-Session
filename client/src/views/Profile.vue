@@ -12,11 +12,9 @@
       </div>
       <div class="add_teams">
         <button class="createTeams">
-          Créer une équipe
+          Créer ou rejoindre une équipe ?
         </button>
-                <button class="createTeams">
-          Rejoindre une équipe
-        </button>
+
       </div>
   </div>
 </template>
