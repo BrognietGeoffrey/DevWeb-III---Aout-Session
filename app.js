@@ -49,6 +49,10 @@ app.get('/', (req, res) => {
 const users = require('./routes/api/users');
 app.use('/api/users', users);
 
+// Bring the Teams route
+const teams = require('./routes/api/teams');
+app.use('/api/teams', teams)
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

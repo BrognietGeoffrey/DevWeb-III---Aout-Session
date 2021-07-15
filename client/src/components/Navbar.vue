@@ -58,12 +58,21 @@
                     </router-link>
                 </li>
 
+                <!-- Router link for the Teams Page -->
+                <li class="nav-item" v-if="isLoggedIn">
+                    <router-link to="/teams" class="nav-link">
+                        Teams
+                    </router-link>
+                </li>
+
                 <!-- Router link for the Logout Page -->
                 <li class="nav-item" v-if="isLoggedIn">
                     <a to="/logout" class="nav-link" @click.prevent="logoutUser">
                         Log out
                     </a>
                 </li>
+
+
 
                 <!-- Example of disabled link
                 <li class="nav-item">

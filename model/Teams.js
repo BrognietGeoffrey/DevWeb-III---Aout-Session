@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-// Create the Teams Schemae
+// Create the Teams Schema
 
 const TeamsSchema = new schema ({
     name : {
         type : String,
         required : true
     },
-    username : {
+    members : {
         type : String,
         required : true
     },
@@ -18,4 +18,4 @@ const TeamsSchema = new schema ({
     }
 });
 
-module.exports = User =mongoose.model('users', UserSchema);
+module.exports = Teams =mongoose.model('teams', TeamsSchema);
