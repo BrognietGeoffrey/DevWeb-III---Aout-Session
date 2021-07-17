@@ -8,12 +8,12 @@ const key = require('../../config/keys').secret;
 
 
 /**
- * @route POST api/teams/register
- * @desc Register the User
- * @access Public
+ * @route POST api/teams/create
+ * @desc Create the team
+ * @access Private
  */
 
-router.post('/register', (req, res) => {
+router.post('/create', (req, res) => {
     let { name, members } = req.body
 
 
@@ -49,6 +49,25 @@ router.post('/register', (req, res) => {
             msg : "The team is now created"
         })
     })
+});
+
+/**
+ * @route UPDATE api/teams/join
+ * @desc Join the team
+ * @access Private
+ */
+
+router.route("/join").put(function(req, res) {
+    let { name, members } = req.body
+
+    Teams.updateOne({name: name }, {$push: { members: [members]}, function(err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(result);
+        }
+    }
+})
 });
 
 module.exports = router;
