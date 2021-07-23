@@ -56,7 +56,7 @@ router.post('/create', (req, res) => {
  * @desc Join the team
  * @access Private
  */
-
+/**
 router.route("/join").put(function(req, res) {
     let { name, members } = req.body
 
@@ -69,5 +69,6 @@ router.route("/join").put(function(req, res) {
     }
 })
 });
+*/
 
 module.exports = router;
