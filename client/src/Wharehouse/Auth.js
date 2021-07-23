@@ -91,7 +91,7 @@ const mutations = {
         state.status = 'success'
     },
     auth_error(state, err) {
-        err.response.data.msg
+        state.error = err.response.data.msg
     },
     register_request(state){
         state.status = 'loading'

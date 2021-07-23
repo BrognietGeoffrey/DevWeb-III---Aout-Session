@@ -1,7 +1,7 @@
 <template>
   <div>
       <h2>
-          Register
+          
       </h2>
         <div class="row">
             <div class="card mx-auto">

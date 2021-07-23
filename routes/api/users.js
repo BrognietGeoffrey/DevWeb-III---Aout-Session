@@ -28,11 +28,11 @@ router.post('/register', (req, res) => {
                 msg : "Username is already taken."
             });
         }
-    })
+    });
     // Check for the unique email
     User.findOne({email : email
-    }).then(user => {
-        if (user){
+    }).then(User => {
+        if (User){
             return msg.status(400).json({
                 msg : "Email is already registered. Did you forgot your password ?"
             });

@@ -18,4 +18,4 @@ const LeaderboardSchema = new schema ({
     }
 });
 
-module.exports = User =mongoose.model('users', UserSchema);
+module.exports = User =mongoose.model('leaderboard', UserSchema);
