@@ -13,15 +13,7 @@ const routes = [
     component: Home
   },
 
-  // About Path
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
+
 
   // Register Path
   {
@@ -66,6 +58,16 @@ const routes = [
       requiresAuth: true
     }
   },
+    // Redirect Chat
+    {
+      path: '/chat',
+      name: 'chat',
+
+      component: () => import(/* webpackChunkName: "chat" */ '../views/Chatpage.vue'),
+      meta:{
+        requiresAuth: true
+      }
+    },
 
   // Easter Egg Path
   {
