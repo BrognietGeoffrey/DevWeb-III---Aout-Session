@@ -3,11 +3,11 @@
       <h1>
           Profile
       </h1>
-      <div class="card">
+      <div class="info">
         <ul class="list-group align-self-center font-weight-bold">
-          <li class="list-group-item">Email: {{user.email}}</li>
-          <li class="list-group-item">Username: {{user.username}}</li>
-          <li class="list-group-item">Name: {{user.name}}</li>
+          <li class="info_user">Email: {{user.email}}</li>
+          <li class="info_user">Username: {{user.username}}</li>
+          <li class="info_user">Name: {{user.name}}</li>
         </ul>
       </div>
       <div class="add_teams">
@@ -33,11 +33,18 @@ export default {
 </script>
 
 <style>
-  h1{
+  h1, button{
     align-content: center;
-    text-align: center;
+    text-align: left;
     text-justify: auto;
     text-decoration-line: underline;
+  };
+  .info_user{
+    text-justify: auto;
+    text-align: left;
+  }
+  button {
+    align-content: center;
   }
 
 

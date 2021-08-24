@@ -12,15 +12,19 @@
 import { mapGetters } from "vuex"
 import Navbar from "@/components/Navbar";
 import Errors from "@/components/Errors";
+//import io from 'socket.io-client';
+//import Chatpage from './views/Chatpage.vue';
 export default {
   components : {
     Navbar,
-    Errors
+    Errors,
+
   },
   computed: {
     ...mapGetters(["error"])
   }
 }
+
 </script>
 <style>
 </style>

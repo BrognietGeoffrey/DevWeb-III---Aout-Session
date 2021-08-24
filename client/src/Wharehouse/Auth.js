@@ -20,6 +20,7 @@ const getters = {
     isLoggedIn : state => !!state.token,
     authState : state => state.status,
     user: state => state.user,
+    teams : state => state.teams,
     error: state => state.error
 };
 
@@ -46,6 +47,7 @@ const actions = {
             commit('auth_error', err);
         }
         },
+
         // Register User
         async register ({
             commit
@@ -62,6 +64,7 @@ const actions = {
             commit('register_error', err)
         }
         },
+
         // Get the user profile
         async getProfile({commit}){
             commit('profile_request');
@@ -69,6 +72,15 @@ const actions = {
             commit('user_profile', res.data.user)
             return res;
         },
+
+        // Get the teams profile
+        async getTeams({commit}){
+            commit('teams_request');
+            let res = await axios.get('http://localhost:5000/api/teams/info')
+            commit('teams_profile', res.data.teams)
+            return res;
+        },
+
         // Log out the user
         async logout({
             commit
@@ -106,13 +118,19 @@ const mutations = {
         state.user = ''
     },
     register_error(state, err){
-        state.error= err.response.data.msg
+        state.error = err.response.data.msg;
     },
     profile_request(state){
         state.status = 'loading'
     },
     user_profile(state, user){
         state.user = user
+    },
+    teams_request(state){
+        state.status = 'loading'
+    },
+    teams_profile(state, teams){
+        state.teams = teams
     }
 };
 

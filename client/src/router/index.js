@@ -47,6 +47,16 @@ const routes = [
       requiresAuth: true
     }
   },
+  // teams Path
+  {
+    path: '/teams',
+    name: 'teams',
+
+    component: () => import(/* webpackChunkName: "classement" */ '../views/Teams.vue'),
+    meta:{
+      requiresAuth: true
+    }
+  },
 
   // Classement Path
   {

@@ -3,6 +3,7 @@ const Teams = require('../../model/Teams');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const key = require('../../config/keys').secret;
+const passport = require('passport');
 
 
 
@@ -13,42 +14,46 @@ const key = require('../../config/keys').secret;
  * @access Private
  */
 
-router.post('/create', (req, res) => {
+ router.post('/register', async(req, res) => {
     let { name, members } = req.body
+    if(name == "") {
+        return res.status(400).json({
+            msg : "Please choose a name."
+        });
+    }
 
-
-    // Check for the unique team username
+    // Check for the unique username
     Teams.findOne({name : name
     }).then(teams => {
         if (teams){
-            return msg.status(400).json({
-                msg : "The name of the team is already taken"
+            return res.status(400).json({
+                msg : "Name is already taken."
             });
         }
     });
-
-    // Check if the member is already in the team
+    // Check for the unique email
     Teams.findOne({members : members
     }).then(teams => {
         if (teams){
-            return msg.status(400).json({
-                msg : "The members is already in the team"
+            return res.status(400).json({
+                msg : "Username is already in the teams"
             });
         }
     });
 
-    let newTeam = new Teams({
+    // The data is valid and new, we can register the user
+    let newTeams = new Teams({
         name,
         members
-    })
+    });
 
-    // Save the team
-    newTeam.save().then(teams => {
+
+    newTeams.save().then(teams => {
         return res.status(201).json({
             success : true,
-            msg : "The team is now created"
-        })
-    })
+            msg : "Team is now registered"
+        });
+    });
 });
 
 /**
@@ -56,7 +61,7 @@ router.post('/create', (req, res) => {
  * @desc Join the team
  * @access Private
  */
-/**
+
 router.route("/join").put(function(req, res) {
     let { name, members } = req.body
 
@@ -69,6 +74,19 @@ router.route("/join").put(function(req, res) {
     }
 })
 });
-*/
+
+
+/**
+ * @route POST api/teams/team
+ * @desc Return the team's profile
+ * @access Private
+ */
+ router.get('/info', passport.authenticate('jwt', {
+    session : false
+}), (req, res) => {
+    return res.json({
+        user : req.teams
+    });
+});
 
 module.exports = router;
