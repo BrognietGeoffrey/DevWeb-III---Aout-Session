@@ -12,7 +12,7 @@ const User = require('../../model/User')
  * @access Public
  */
 
-router.post('/register', (req, res) => {
+router.post('/register', async(req, res) => {
     let { name, username, email, password, confirm_password} = req.body
     if(password !== confirm_password) {
         return res.status(400).json({
@@ -24,7 +24,7 @@ router.post('/register', (req, res) => {
     User.findOne({username : username
     }).then(user => {
         if (user){
-            return msg.status(400).json({
+            return res.status(400).json({
                 msg : "Username is already taken."
             });
         }
@@ -33,7 +33,7 @@ router.post('/register', (req, res) => {
     User.findOne({email : email
     }).then(User => {
         if (User){
-            return msg.status(400).json({
+            return res.status(400).json({
                 msg : "Email is already registered. Did you forgot your password ?"
             });
         }

@@ -16,12 +16,7 @@
                     </router-link>
                 </li>
 
-                <!-- Router link for the About Page -->
-                <li class="nav-item">
-                    <router-link to="/about" class="nav-link">
-                        About
-                    </router-link>
-                </li>
+
 
                 <!-- Router link for the Classement Page -->
                 <li class="nav-item" v-if="isLoggedIn">
@@ -55,6 +50,13 @@
                 <li class="nav-item" v-if="isLoggedIn">
                     <router-link to="/profile" class="nav-link">
                         Profile
+                    </router-link>
+                </li>
+
+                <!-- Router link for the Chat Page -->
+                <li class="nav-item" v-if="isLoggedIn">
+                    <router-link to="/chat" class="nav-link">
+                        Chat
                     </router-link>
                 </li>
 
