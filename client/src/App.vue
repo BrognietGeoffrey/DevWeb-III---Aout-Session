@@ -1,3 +1,7 @@
+<!--
+Fichier de base de Vue
+Basic file of Vue
+-->
 <template>
   <div id="app">
     <Navbar/>

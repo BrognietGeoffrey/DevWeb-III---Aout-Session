@@ -1,3 +1,7 @@
+/**
+ * Fichier qui va chercher les informations de l'api pour renvoyer au frontend
+ * File who's gonna grab the information of the api for the frontend part
+ */
 import axios from 'axios';
 import router from '../router/index';
 
@@ -9,14 +13,14 @@ const state = {
 };
 
 const getters = {
-    /** Version longue
+    /** Version longue - Long version
     isLoggedIn : function(state) {
         if(state.token != ''){
             return true
         }
         else {return false}
     } */
-    /** Version courte */
+    /** Version courte - Small version */
     isLoggedIn : state => !!state.token,
     authState : state => state.status,
     user: state => state.user,
@@ -31,7 +35,7 @@ const actions = {
     }, user) {
         commit('auth_request');
         try {
-            let res = await axios.post('http://localhost:5000/api/users/login', user)
+            let res = await axios.post('/api/users/login', user)
             if (res.data.success) {
                 const token = res.data.token;
                 const user = res.data.user;
@@ -54,7 +58,7 @@ const actions = {
         }, userData){
             try {
             commit('register_request');
-            let res = await axios.post('http://localhost:5000/api/users/register', userData);
+            let res = await axios.post('/api/users/register', userData);
             if(res.data.success!==undefined){
                 commit('register_success');
             }
@@ -68,7 +72,7 @@ const actions = {
         // Get the user profile
         async getProfile({commit}){
             commit('profile_request');
-            let res = await axios.get('http://localhost:5000/api/users/profile')
+            let res = await axios.get('/api/users/profile')
             commit('user_profile', res.data.user)
             return res;
         },
@@ -76,7 +80,7 @@ const actions = {
         // Get the teams profile
         async getTeams({commit}){
             commit('teams_request');
-            let res = await axios.get('http://localhost:5000/api/teams/info')
+            let res = await axios.get('/api/teams/info')
             commit('teams_profile', res.data.teams)
             return res;
         },

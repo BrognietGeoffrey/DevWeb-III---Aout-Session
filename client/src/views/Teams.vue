@@ -1,3 +1,7 @@
+<!--
+Fichier pour la page de l'équipe - non fonctionnelle
+File for the login page - not working
+-->
 <template>
   <div>
       <h1>

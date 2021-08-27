@@ -1,3 +1,7 @@
+/**
+ * Fichier pour JWT
+ * Files for JWT
+ */
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const User = require('../model/User');

@@ -1,3 +1,7 @@
+<!--
+Fichier pour la page d'inscription
+File for the register page
+-->
 <template>
   <div>
       <h2>

@@ -1,3 +1,7 @@
+<!--
+Fichier pour la page de profil
+File for the profile page
+-->
 <template>
   <div>
       <h1>

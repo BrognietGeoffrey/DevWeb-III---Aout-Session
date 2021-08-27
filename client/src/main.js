@@ -1,3 +1,7 @@
+/**
+ * Fichier pour les token
+ * Files for the token
+ */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'

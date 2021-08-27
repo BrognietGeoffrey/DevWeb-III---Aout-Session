@@ -1,3 +1,8 @@
+<!--
+Fichier pour la page d'accueil
+File for the Home page
+-->
+
 <template>
   <div class="home">
     <div class="jumbotron jumbotron-fluid">

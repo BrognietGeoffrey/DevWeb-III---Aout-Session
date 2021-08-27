@@ -1,3 +1,7 @@
+/**
+ * Fichier pour la création de la collection des utilisateurs dans MongoDB
+ * Files for the creation of collection Users in MongoDB
+ */
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 

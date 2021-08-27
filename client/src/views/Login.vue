@@ -1,3 +1,7 @@
+<!--
+Fichier pour la page de connexion
+File for the login page
+-->
 <template>
     <div>
         <h2>

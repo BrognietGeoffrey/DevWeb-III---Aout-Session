@@ -1,3 +1,7 @@
+/**
+ * Fichier pour la création de la collection des équipes dans MongoDB
+ * Files for the creation of collection Teams in MongoDB
+ */
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
