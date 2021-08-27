@@ -1,3 +1,7 @@
+/**
+ * Fichier pour le routage des pages
+ * File for the pages routes
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
@@ -6,7 +10,8 @@ import store from '../store'
 Vue.use(VueRouter)
 
 const routes = [
-  // Home Path
+  // Home Path - Chemin
+
   {
     path: '/home',
     name: 'Home',
@@ -15,7 +20,7 @@ const routes = [
 
 
 
-  // Register Path
+  // Register Path - Chemin
   {
     path: '/register',
     name: 'register',
@@ -26,7 +31,7 @@ const routes = [
     }
   },
 
-  // Login Path
+  // Login Path - Chemin
   {
     path: '/login',
     name: 'login',
@@ -37,7 +42,7 @@ const routes = [
     }
   },
 
-  // Profile Path
+  // Profile Path - Chemin
   {
     path: '/profile',
     name: 'profile',
@@ -47,7 +52,7 @@ const routes = [
       requiresAuth: true
     }
   },
-  // teams Path
+  // teams Path - Chemin
   {
     path: '/teams',
     name: 'teams',
@@ -58,7 +63,7 @@ const routes = [
     }
   },
 
-  // Classement Path
+  // Classement Path - Chemin
   {
     path: '/classement',
     name: 'classement',
@@ -68,7 +73,7 @@ const routes = [
       requiresAuth: true
     }
   },
-    // Redirect Chat
+    // Redirect Chat - Chemin
     {
       path: '/chat',
       name: 'chat',
@@ -79,7 +84,7 @@ const routes = [
       }
     },
 
-  // Easter Egg Path
+  // Easter Egg Path - Chemin
   {
     path: '/easteregg',
     name: 'easteregg',
@@ -97,6 +102,10 @@ const router = new VueRouter({
   routes
 });
 
+/**
+ * Si la personne n'est pas connecté le site va redirigé vers le page de connexion
+ * If the user isn't connected, the website will redirect to the login page
+ */
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requiresAuth)){
     if(!store.getters.isLoggedIn){
@@ -107,6 +116,10 @@ router.beforeEach((to, from, next) => {
       next();
     }
   }
+  /**
+ * Si la personne est connecté le site va redirigé vers le page de profil
+ * If the user is connected, the website will redirect to the profile page
+ */
   else if (to.matched.some(record => record.meta.requiresGuest)){
     if(store.getters.isLoggedIn){
       //Redirect to the profile Page

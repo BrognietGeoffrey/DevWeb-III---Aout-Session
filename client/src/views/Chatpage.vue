@@ -1,3 +1,7 @@
+<!--
+Fichier pour le chat - Non fonctionnel
+File for the chat - Not working
+-->
 <template>
   <div class="chatwindow">
       <div class="messages">

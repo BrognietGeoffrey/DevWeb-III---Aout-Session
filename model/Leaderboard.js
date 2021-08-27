@@ -1,3 +1,7 @@
+/**
+ * Fichier pour la création de la collection du classement dans MongoDB
+ * Files for the creation of collection Leaderboard in MongoDB
+ */
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
